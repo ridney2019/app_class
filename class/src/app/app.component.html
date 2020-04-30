@@ -1,0 +1,11 @@
+<h1> Classe</h1>
+
+<ul>
+  <li *ngFor="let aluno of alunos">
+    <div>{{aluno.numero}}</div>
+    <div>{{aluno.nome}}</div>
+    <br>
+    <div>{{aluno.alunos | json}}</div>
+    <br>
+  </li>
+</ul>

@@ -1,0 +1,48 @@
+[
+    {
+      "numero": "M1A",
+      "nome": "Primeiro Ano do Médio – Turma A",
+      "alunos": [
+        {
+          "codigo": "1",
+          "nome": "José Silva"
+        },
+        {
+          "codigo": "2",
+          "nome": "Maria Sena"
+        },
+        {
+          "codigo": "3",
+          "nome": "Jairo Pereira"
+        },
+        {
+          "codigo": "4",
+          "nome": "Mariana Luz"
+        },
+        {
+          "codigo": "5",
+          "nome": "Mel lima"
+        },
+        {
+          "codigo": "6",
+          "nome": "Lucas Pedro"
+        },
+        {
+          "codigo": "7",
+          "nome": "Marcos Teles"
+        },
+        {
+          "codigo": "8",
+          "nome": "Paulo Faria"
+        },
+        {
+          "codigo": "9",
+          "nome": "Cyntia Carla"
+        },
+        {
+          "codigo": "10",
+          "nome": "Leonardo Da Vince"
+        }
+      ]
+    }
+  ]
