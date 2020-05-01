@@ -1,11 +1,18 @@
 <h1> Classe</h1>
 
-<ul>
-  <li *ngFor="let aluno of alunos">
-    <div>{{aluno.numero}}</div>
-    <div>{{aluno.nome}}</div>
-    <br>
-    <div>{{aluno.alunos | json}}</div>
-    <br>
-  </li>
-</ul>
+<div class="list-group">
+  <div class="list-group-item" *ngFor="let aluno of alunos">
+    <div class="float-right">
+      <div class="badge badge-primary">
+        {{aluno.numero}}
+      </div>
+      <div>
+      <div>{{aluno.nome}}</div>
+      <br>
+      <div>{{aluno.alunos | json}}</div>
+      </div>
+    </div>
+
+    
+<!--Seletor do componente Turmas -->
+<app-turmas></app-turmas>
