@@ -1,1 +1,35 @@
-<p>turmas works!</p>
+
+<div class="container mb-5">
+  <h3>Cadastro de Turma</h3>
+
+  <form #cadastro="ngForm" (submit)="salvar()">
+    <div class="col-sm-12">
+      <div class="form-group">
+          <label for="class">Turma <span class="required">*</span></label>
+          <input type="text" class="form-control" id="turma" name="turma" [(ngModel)]="turma.turma" #cad="ngModel" required
+          [class.is-invalid]="cad.invalid && (cad.dirty || cad.touched)" placeholder="Informe o nome da Turma">
+          <div *ngIf="cad.invalid && (cad.dirty || cad.touched)" | class="invalid-feedback">
+            <span *ngIf="cad.errors.required">Você precisa informar o nome</span>
+          </div>
+      </div>
+      <button class="btn btn-primary" mr-3 [disabled]="cadastro.invalid">Salvar</button>
+      <button class="btn btn-secondary" type="reset">Limpar</button> 
+    </div>
+  </form>
+  <br>
+  <h4>Turmas Cadastradas</h4>
+  <div class="col-sm-12">
+  <table class="table table-hover table-striped table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Turma</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let turma of turmas">
+        <td>{{turma.turma}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>

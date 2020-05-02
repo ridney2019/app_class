@@ -1,18 +1,41 @@
-<h1> Classe</h1>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
 
-<div class="list-group">
-  <div class="list-group-item" *ngFor="let aluno of alunos">
-    <div class="float-right">
-      <div class="badge badge-primary">
-        {{aluno.numero}}
-      </div>
-      <div>
-      <div>{{aluno.nome}}</div>
-      <br>
-      <div>{{aluno.alunos | json}}</div>
-      </div>
+    <div class="navbar-header">
+      <a class="navbar-brand" routerLink="">Formulários</a>
     </div>
 
-    
-<!--Seletor do componente Turmas -->
-<app-turmas></app-turmas>
+    <ul class="nav navbar-nav">
+        <li routerLinkActive="active">
+          <a routerLink="/about">About</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/home">Home</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/turmas">Turmas</a>
+        </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
+<br>
+<br>
+<!--
+  <div class="card mb-3">
+  <div *ngFor="let aluno of alunos">
+    <div class="card-header" >
+      <div>{{aluno.numero}}</div>
+      <div>{{aluno.nome}}</div>
+    </div>
+    <div class="card-body">
+      <div>{{aluno.alunos | json}}</div>
+    </div>
+  </div>
+</div>
+-->
+
