@@ -48,8 +48,11 @@
         <span *ngIf="nota2.errors.required">A Nota2 deve ser informada</span>
       </div>
     </div>
-      <button class="btn btn-primary" mr-2 [disabled]="cadastro.invalid">Salvar</button>
-      <button class="btn btn-secondary" type="reset">Limpar</button> 
+    <div class="btn-group mr-6" role="group" aria-label="First group">
+      <button class="btn btn-primary"  [disabled]="cadastro.invalid">Salvar</button>
+      <button class="btn btn-secondary"  type="reset">Limpar</button> 
+    </div>
+      
     </div>
   </form>
   <br>
@@ -59,19 +62,23 @@
     <thead>
       <tr>
         <th scope="col">Turma</th>
-        <th scope="col">Aluno</th>
+        <th scope="col">Nome</th>
         <th scope="col">Frequência</th>
         <th scope="col">Nota 1</th>
         <th scope="col">Nota 2</th>
+        <th scope="col">Frequência</th>
+        <th scope="col">Média Calculada</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let turma of turmas">
-        <td>{{turma.turma}}</td>
-        <td>{{turma.aluno}}</td>
-        <td>{{turma.frequencia}}</td>
-        <td>{{turma.nota1}}</td>
-        <td>{{turma.nota2}}</td>
+      <tr *ngFor="let registro of registros">
+        <td>{{registro.encontrarTurma(registro)}}</td>
+        <td>{{registro.encontrarAluno(registro.codigo)}}</td>
+        <td>{{registro.frequencia}}</td>
+        <td>{{registro.nome}}</td>
+        <td>{{registro.nota1}}</td>
+        <td>{{registro.nota2}}</td>
+        <td>{{registro.calcularMedia(registro)}}</td>
       </tr>
     </tbody>
   </table>
