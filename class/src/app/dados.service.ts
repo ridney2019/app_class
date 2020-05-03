@@ -5,7 +5,7 @@ import { tap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class AlunosService {
+export class TurmasService {
 
   constructor(private http: HttpClient) { }
 

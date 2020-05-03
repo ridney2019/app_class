@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { AlunosService } from './dados.service';
+
 
 
 @Component({
@@ -9,13 +9,10 @@ import { AlunosService } from './dados.service';
   styleUrls: []
 })
 export class AppComponent implements OnInit{
-   alunos: null;
+  
    
-  constructor(private service: AlunosService){}
-
+  constructor(){}
   ngOnInit(): void {
-   this.service.lista()
-     .subscribe((dados: any) => this.alunos = dados);
-  }
+   }
 
 }

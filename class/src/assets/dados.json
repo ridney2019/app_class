@@ -1,7 +1,8 @@
 [
     {
       "numero": "M1A",
-      "nome": "Primeiro Ano do Médio – Turma A",
+      "nometurma": "Primeiro Ano do Médio – Turma A",
+      
       "alunos": [
         {
           "codigo": "1",
@@ -45,4 +46,4 @@
         }
       ]
     }
-  ]
+]

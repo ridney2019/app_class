@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormsModule } from '@angular/forms';
-import { Classe } from './models/classe.models';
+import { Classe } from './model/classe.model';
+import { TurmasService } from 'src/app/dados.service';
 
 @Component({
   selector: 'app-turmas',
@@ -8,9 +8,11 @@ import { Classe } from './models/classe.models';
   styleUrls: ['./turmas.component.css']
 })
 export class TurmasComponent implements OnInit {
-
 turma: Classe;
-turmas = Array<Classe>();
+turmas = [];
+registros: [];
+
+constructor(private service: TurmasService) { }
 
    salvar(){
      this.turmas.push(this.turma);
@@ -19,10 +21,27 @@ turmas = Array<Classe>();
 
    ngOnInit(): void{
      this.redefinir();
-     this.turmas = new Array<Classe>();
+     this.turmas =[];
    };
   redefinir(){
-    this.turma = new Classe('');
+    this.turma = new Classe(null, null, null, null, null, []);
    }
+   
+  listadeAluno(Classe){
+    return this.turma.alunos;
   }
+
+  encontrarTurma(){
+
+  }
+  encontrarAluno(){
+    
+  }
+  calcularMedia(){
+    
+  }
+
+
+  }
+ 
 
