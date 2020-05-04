@@ -8,7 +8,7 @@
         <label for="selectTurmas">Turmas<span class="required">*</span></label>
         <select class="form-control" name="selectTurmas" id="selectTurmas" [(ngModel)]="turma.turma" #selectTurmas="ngModel" required
           [class.is-invalid]="selectTurmas.invalid && (selectTurmas.dirty || selectTurmas.touched)" multiple>
-          <option *ngFor="let turma of turmas" [value]="turmas">{{ turma.turma}}</option>
+          <option *ngFor="let turma of alunos" [value]="turmas">{{ turma.nometurma}}</option>
         </select>
         <div *ngIf="selectTurmas.invalid && (selectTurmas.dirty || selectTurmas.touched)" | class="invalid-feedback">
           <span *ngIf="selectTurmas.errors.required">A turma deve ser selecionada!</span>
@@ -16,9 +16,9 @@
     </div>
     <div class="form-group">
       <label for="selectAlunos">Alunos<span class="required">*</span></label>
-      <select class="form-control" name="selectAlunos" id="selectAlunos" [(ngModel)]="turma.alunos" #selectAlunos="ngModel" required
+      <select class="form-control" name="selectAlunos" id="selectAlunos" [(ngModel)]="aluno.aluno" #selectAlunos="ngModel" required
         [class.is-invalid]="selectAlunos.invalid && (selectAlunos.dirty || selectAlunos.touched)" multiple>
-        <option *ngFor="let turma of turmas" [value]="turmas">{{turma.nota1}}</option>
+        <option *ngFor="let aluno of alunos" [value]="turmas">{{aluno.alunos | json}}</option>
       </select>
       <div *ngIf="selectAlunos.invalid && (selectAlunos.dirty || selectAlunos.touched)" | class="invalid-feedback">
         <span *ngIf="selectAlunos.errors.required">A turma deve ser selecionada!</span>
@@ -48,11 +48,9 @@
         <span *ngIf="nota2.errors.required">A Nota2 deve ser informada</span>
       </div>
     </div>
-    <div class="btn-group mr-6" role="group" aria-label="First group">
-      <button class="btn btn-primary"  [disabled]="cadastro.invalid">Salvar</button>
+    <div class="btn-group mr-2" role="group" aria-label="First group"></div>
+      <button class="btn btn-primary" mr-2 [disabled]="cadastro.invalid">Salvar</button>
       <button class="btn btn-secondary"  type="reset">Limpar</button> 
-    </div>
-      
     </div>
   </form>
   <br>
@@ -67,18 +65,12 @@
         <th scope="col">Nota 1</th>
         <th scope="col">Nota 2</th>
         <th scope="col">Frequência</th>
-        <th scope="col">Média Calculada</th>
+        <th scope="col">Média</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let registro of registros">
-        <td>{{registro.encontrarTurma(registro)}}</td>
-        <td>{{registro.encontrarAluno(registro.codigo)}}</td>
-        <td>{{registro.frequencia}}</td>
-        <td>{{registro.nome}}</td>
-        <td>{{registro.nota1}}</td>
-        <td>{{registro.nota2}}</td>
-        <td>{{registro.calcularMedia(registro)}}</td>
+        
       </tr>
     </tbody>
   </table>
