@@ -1,24 +1,16 @@
 
-import { TurmasService } from 'src/app/dados.service';
-import { Component, OnInit } from '@angular/core';
+export class Aluno {
 
-export class Aluno implements OnInit {
-  aluno:Aluno;  
-  alunos = []; 
+    constructor(
+      public id: number,
+      public frequencia: number,
+      public nota1: number,
+      public nota2: number,
 
-    constructor(private service: TurmasService) {}
+      ) {
 
-    salvar(){
-       this.alunos.push(this.aluno);
-       this.redefinir();
-      }   
-      redefinir(){
-        this.aluno = new Aluno(null);
-       }
+      }
 
-    ngOnInit(): void {
-        this.service.lista()
-          .subscribe((dados: any) => this.alunos = dados);
-       }
+
 
 }

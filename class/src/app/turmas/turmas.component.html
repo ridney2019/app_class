@@ -6,9 +6,10 @@
     <div class="col-sm-12">
       <div class="form-group">
         <label for="selectTurmas">Turmas<span class="required">*</span></label>
-        <select class="form-control" name="selectTurmas" id="selectTurmas" [(ngModel)]="turma.turma" #selectTurmas="ngModel" required
+        <select class="form-control" name="selectTurmas" id="selectTurmas" [(ngModel)]="selectedTurma.id" (change)="onSelect($event.target.value)" #selectTurmas="ngModel" required
           [class.is-invalid]="selectTurmas.invalid && (selectTurmas.dirty || selectTurmas.touched)" multiple>
-          <option *ngFor="let turma of alunos" [value]="turmas">{{ turma.nometurma}}</option>
+          <option value="0">--Select--</option>
+          <option *ngFor="let turma of turmas" [value]="turma.numero">{{ turma.id}}</option>
         </select>
         <div *ngIf="selectTurmas.invalid && (selectTurmas.dirty || selectTurmas.touched)" | class="invalid-feedback">
           <span *ngIf="selectTurmas.errors.required">A turma deve ser selecionada!</span>
@@ -16,43 +17,20 @@
     </div>
     <div class="form-group">
       <label for="selectAlunos">Alunos<span class="required">*</span></label>
-      <select class="form-control" name="selectAlunos" id="selectAlunos" [(ngModel)]="aluno.aluno" #selectAlunos="ngModel" required
+      <select class="form-control" name="selectAlunos" id="selectAlunos" [(ngModel)]="turma.id" #selectAlunos="ngModel" required
         [class.is-invalid]="selectAlunos.invalid && (selectAlunos.dirty || selectAlunos.touched)" multiple>
-        <option *ngFor="let aluno of alunos" [value]="turmas">{{aluno.alunos | json}}</option>
+        <option *ngFor="let turma of turmas" [value]="turmas">{{turma.frequencia }}</option>
       </select>
       <div *ngIf="selectAlunos.invalid && (selectAlunos.dirty || selectAlunos.touched)" | class="invalid-feedback">
         <span *ngIf="selectAlunos.errors.required">A turma deve ser selecionada!</span>
       </div>
   </div>
-      <div class="form-group">
-        <label for="class">Frequência <span class="required">*</span></label>
-        <input type="number" class="form-control" id="frequencia" name="frequencia" [(ngModel)]="turma.frequencia" #frequencia="ngModel" required
-        [class.is-invalid]="frequencia.invalid && (frequencia.dirty || frequencia.touched)">
-        <div *ngIf="frequencia.invalid && (frequencia.dirty || frequencia.touched)" | class="invalid-feedback">
-          <span *ngIf="frequencia.errors.required">A Frequência deve ser informada</span>
-        </div>
-    </div>
-    <div class="form-group">
-      <label for="class">Nota 1 <span class="required">*</span></label>
-      <input type="number" class="form-control" id="nota1" name="nota1" [(ngModel)]="turma.nota1" #nota1="ngModel" required
-      [class.is-invalid]="nota1.invalid && (nota1.dirty || nota1.touched)">
-      <div *ngIf="nota1.invalid && (nota1.dirty || nota1.touched)" | class="invalid-feedback">
-        <span *ngIf="nota1.errors.required">A Nota1 deve ser informada</span>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="class">Nota 2 <span class="required">*</span></label>
-      <input type="number" class="form-control" id="nota2" name="nota2" [(ngModel)]="turma.nota2" #nota2="ngModel" required
-      [class.is-invalid]="nota2.invalid && (nota2.dirty || nota2.touched)">
-      <div *ngIf="nota2.invalid && (nota2.dirty || nota2.touched)" | class="invalid-feedback">
-        <span *ngIf="nota2.errors.required">A Nota2 deve ser informada</span>
-      </div>
-    </div>
     <div class="btn-group mr-2" role="group" aria-label="First group"></div>
       <button class="btn btn-primary" mr-2 [disabled]="cadastro.invalid">Salvar</button>
       <button class="btn btn-secondary"  type="reset">Limpar</button> 
     </div>
   </form>
+  
   <br>
   <h4>frequencias Cadastradas</h4>
   <div class="col-sm-12">

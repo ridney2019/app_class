@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TurmasService } from 'src/app/dados.service';
 import { Classe } from './model/classe.model';
 import { Aluno } from './model/aluno.model';
 
@@ -8,42 +9,40 @@ import { Aluno } from './model/aluno.model';
   styleUrls: ['./turmas.component.css']
 })
 export class TurmasComponent implements OnInit {
-aluno: Aluno;
-alunos =[];
+
+selectedTurma: Classe = new Classe(1,1, 'LPWEB');  
+alunos: Aluno[];
+turmas: Classe[];
 turma: Classe;
-turmas = [];
 
 registros: [];
 
-constructor() { }
 
-   salvar(){
-     this.turmas.push(this.turma);
-     this.redefinir();
-   }
+constructor(private service: TurmasService) { }
 
-   ngOnInit(): void{
-     this.redefinir();
-     this.turmas =[];
-    }
-
-  
-  redefinir(){
-    this.turma = new Classe(null,null,null,null,null);
-   }
-   
-  listadeAluno(Classe){
-    return this.turma.aluno;
+  salvar(){
+  this.turmas.push(this.turma);
   }
 
+  ngOnInit(){
+    this.turmas = this.service.getTurmas();
+    this.onSelect(this.selectedTurma.id);
+  }
+
+  onSelect(frequencia) {
+    this.alunos = this.service.getAlunos().filter(item => item.frequencia == frequencia);
+  }
+  
+
+
   encontrarTurma(){
-    return ;
+
   }
   encontrarAluno(){
     
   }
   calcularMedia(){
-   return ;
+
     
   }
 

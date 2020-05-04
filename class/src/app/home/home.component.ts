@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { TurmasService } from 'src/app/dados.service';
 
 @Component({
   selector: 'app-home',
@@ -7,12 +8,15 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  turmas: null;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private service: TurmasService) {}
 
-  ngOnInit() {
-    
-  }
+
+  ngOnInit(): void {
+    this.service.lista()
+      .subscribe((dados: any) => this.turmas = dados);
+   }
 
 
 

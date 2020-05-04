@@ -1,1 +1,11 @@
-<h1>HI</h1>
+<div class="card mb-3">
+    <div *ngFor="let turma of turmas">
+      <div class="card-header" >
+        <div>{{turma.numero}}</div>
+        <div>{{turma.nometurma}}</div>
+      </div>
+      <div class="card-body">
+        <div>{{turma.alunos | json}}</div>
+      </div>
+    </div>
+  </div>
